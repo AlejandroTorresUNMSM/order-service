@@ -22,10 +22,6 @@ public class OrderResourceImpl implements OrderResource {
   @Override
   @Transactional
   public Response postOrder(OrderRequest order) {
-    ClientDto clientDto = clientService.getClientById(order.clientId);
-    if (clientDto == null) {
-      throw  new IllegalArgumentException("El cliente no existe");
-    }
     return orderService.postOrder(order);
   }
 
